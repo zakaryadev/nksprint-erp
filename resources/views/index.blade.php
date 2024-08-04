@@ -163,7 +163,7 @@
                     @role('admin')
                         <div class="col-md-8">
                             <div class="row">
-                                <a href="{{ route('masters.index') }}" class="col-4">
+                                <a href="{{ route('masters.index') }}" class="col-md-4">
                                     <div class="card mini-stats-wid">
                                         <div class="card-body waves-effect">
                                             <div class="d-flex">
@@ -182,7 +182,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a href="{{ route('master-groups.index') }}" class="col-4">
+                                <a href="{{ route('master-groups.index') }}" class="col-md-4">
                                     <div class="card mini-stats-wid">
                                         <div class="card-body waves-effect">
                                             <div class="d-flex">
@@ -201,7 +201,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a href="{{ route('designers.index') }}" class="col-4">
+                                <a href="{{ route('designers.index') }}" class="col-md-4">
                                     <div class="card mini-stats-wid">
                                         <div class="card-body waves-effect">
                                             <div class="d-flex">
