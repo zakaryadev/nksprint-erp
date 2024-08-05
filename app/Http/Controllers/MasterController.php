@@ -17,7 +17,7 @@ class MasterController extends Controller
     {
         return view('masters.index', [
             'masters' => Master::all(),
-            'masterGroups' => MastersGroup::all()
+            'masterGroups' => MastersGroup::all(),
         ]);
     }
 

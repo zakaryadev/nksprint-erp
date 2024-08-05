@@ -34,20 +34,43 @@
                                 <th>Телефон</th>
                                 <th>Оклад</th>
                                 <th>Процент</th>
+                                <th>Процент от работы</th>
                                 <th>Группа</th>
                                 <th>Действия</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $sum = 0;
+                            @endphp
                             @foreach ($masters as $master)
                                 <tr>
                                     <td>{{ $master->user->first_name . ' ' . $master->user->last_name }}</td>
                                     <td>{{ $master->user->phone_number }}</td>
-                                    <td>{{ number_format($master->salary, 0, ',', ' ') }}</td>
+                                    <td>
+                                        {{ number_format($master->salary, 0, ',', ' ') }}
+                                    </td>
                                     <td>
                                         <span class="badge bg-primary font-size-13">
                                             {{ $master->procent }}%
                                         </span>
+                                    </td>
+                                    <td>
+                                        @foreach ($master->mastersGroup->ordersServices as $orderService)
+                                            @if ($orderService->order->status == 'done')
+                                                @php
+                                                    $procent =
+                                                        ($orderService->height *
+                                                            $orderService->width *
+                                                            $orderService->quantity *
+                                                            $orderService->price *
+                                                            $master->procent) /
+                                                        100;
+                                                    $sum += $procent;
+                                                @endphp
+                                                {{ number_format($sum, 0, '.', ' ') }} сум
+                                            @endif
+                                        @endforeach
                                     </td>
                                     <td>{{ $master->mastersGroup->name }}</td>
                                     <td>

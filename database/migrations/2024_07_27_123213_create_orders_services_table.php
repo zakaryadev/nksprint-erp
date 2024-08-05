@@ -17,9 +17,9 @@ return new class extends Migration
             $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
             $table->morphs('orderable');
             $table->bigInteger('price');
-            $table->integer('width');
-            $table->integer('height');
-            $table->integer('quantity');
+            $table->decimal('width', 15, 4); // Precision 15, Scale 4
+            $table->decimal('height', 15, 4);
+            $table->decimal('quantity', 15, 4);
             $table->timestamps();
         });
     }
